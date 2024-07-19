@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -32,6 +33,14 @@ public class GirisModulü {
 
         WebElement piyasalar = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"Piyasalar\"]"));
         piyasalar.click();
+        Thread.sleep(1000);
+        WebElement arama = driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text=\"Varlık ismi/kısaltması ile arayın\"]"));
+        arama.click();
+        arama.sendKeys("enj");
+
+        WebElement enj = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"));
+        enj.click();
+        //arama.sendKeys("ada");
 
     }
 
