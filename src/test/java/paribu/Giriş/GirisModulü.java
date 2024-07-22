@@ -2,6 +2,8 @@ package paribu.Giriş;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
@@ -41,6 +43,11 @@ public class GirisModulü {
         WebElement enj = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"));
         enj.click();
         //arama.sendKeys("ada");
+
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+
+        arama.sendKeys("ada");
+
 
     }
 
