@@ -42,10 +42,6 @@ public class GirisModulü {
         driver.findElement(aramaa).click();
         driver.findElement(aramaa).sendKeys("enj");
 
-        //WebElement arama = driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text=\"Varlık ismi/kısaltması ile arayın\"]"));
-        //arama.click();
-        //arama.sendKeys("enj");
-
         WebElement enj = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"));
         enj.click();
         Thread.sleep(1000);
@@ -55,7 +51,6 @@ public class GirisModulü {
         Thread.sleep(1000);
 
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
-
         driver.findElement(aramaa).click();
         driver.findElement(aramaa).sendKeys("ada");
 
