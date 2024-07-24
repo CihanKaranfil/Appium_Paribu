@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
@@ -31,22 +32,33 @@ public class GirisModulü {
 
         URL url = new URL("http://0.0.0.0:4723");
         AndroidDriver driver = new AndroidDriver(url, capabilities);
-        Thread.sleep(4000);
+        Thread.sleep(6000);
 
-        WebElement piyasalar = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"Piyasalar\"]"));
+        WebElement piyasalar = driver.findElement(AppiumBy.xpath("//android.widget.Button[@content-desc=\"Piyasalar\"]/com.horcrux.svg.SvgView"));
         piyasalar.click();
         Thread.sleep(1000);
-        WebElement arama = driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text=\"Varlık ismi/kısaltması ile arayın\"]"));
-        arama.click();
-        arama.sendKeys("enj");
+
+        By aramaa = AppiumBy.xpath("//android.widget.EditText[@text=\"Varlık ismi/kısaltması ile arayın\"]");
+        driver.findElement(aramaa).click();
+        driver.findElement(aramaa).sendKeys("enj");
+
+        //WebElement arama = driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text=\"Varlık ismi/kısaltması ile arayın\"]"));
+        //arama.click();
+        //arama.sendKeys("enj");
 
         WebElement enj = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup"));
         enj.click();
-        //arama.sendKeys("ada");
+        Thread.sleep(1000);
+
+        WebElement yildiz = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/com.horcrux.svg.SvgView/com.horcrux.svg.GroupView"));
+        yildiz.click();
+        Thread.sleep(1000);
 
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
 
-        arama.sendKeys("ada");
+        driver.findElement(aramaa).click();
+        driver.findElement(aramaa).sendKeys("ada");
+
 
 
     }
