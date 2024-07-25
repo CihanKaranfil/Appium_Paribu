@@ -51,8 +51,14 @@ public class GirisModulü {
         Thread.sleep(1000);
 
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
-        driver.findElement(aramaa).click();
-        driver.findElement(aramaa).sendKeys("ada");
+        Thread.sleep(1000);
+
+        WebElement vazgecButton = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"Vazgeç\"]"));
+        vazgecButton.click();
+        Thread.sleep(1000);
+
+        WebElement arama = driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text=\"Varlık ismi/kısaltması ile arayın\"]"));
+        arama.click(); arama.sendKeys("ada");
 
 
 
